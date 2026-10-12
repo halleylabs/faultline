@@ -1,5 +1,7 @@
 # faultline
 
+<sub>A <a href="https://halleylabs.dev">Halley</a> project</sub>
+
 [![faultline running live on withastro/astro: an edit that makes request handling import the dev server turns its edge red, a new allowed dependency shows up green, then the drill-down into Request handling](docs/demo.gif)](docs/demo.mp4)
 
 <sub>Recorded live on withastro/astro while real files changed. One edit crosses a fault line (production request handling importing the dev server), one adds an allowed dependency, and both are undone at the end. The systems and rules are an example map, not the Astro team's (<a href="examples/astro/faultline.yml">examples/astro</a>). Also: <a href="docs/footprint.mp4">what Astro's production entry loads at startup</a>.</sub>
@@ -199,7 +201,7 @@ Suggested rules (a person decides these; add one with fault sync --rule "a -> b"
 - The pull request comment says so first, and the GitHub Action fails unless `allow-loosening` is set, for example from a label:
 
 ```yaml
-      - uses: anzal1/faultline@v0
+      - uses: halleylabs/faultline@v0
         with:
           allow-loosening: ${{ contains(github.event.pull_request.labels.*.name, 'faultline-approved') }}
 ```
@@ -218,7 +220,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with: { fetch-depth: 0 }
-      - uses: anzal1/faultline@v0
+      - uses: halleylabs/faultline@v0
 ```
 
 The action runs from its own source, so it needs no package registry. Every pull request gets one sticky comment: the headline, each structural change as a sentence, a Mermaid map of only the part that changed (GitHub renders it inline), plan versus actual, and the imports behind each change. The check fails when the PR crosses a fault line or loosens `faultline.yml` without approval. On GitLab, Bitbucket or anything else, run `fault diff "$BASE" "$HEAD" --format markdown` and post the output.

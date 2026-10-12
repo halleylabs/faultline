@@ -56,10 +56,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/anzal1/faultline.git"
+    "url": "git+https://github.com/halleylabs/faultline.git"
   },
-  "homepage": "https://github.com/anzal1/faultline#readme",
+  "homepage": "https://github.com/halleylabs/faultline#readme",
   "bugs": {
-    "url": "https://github.com/anzal1/faultline/issues"
+    "url": "https://github.com/halleylabs/faultline/issues"
   }
 }
